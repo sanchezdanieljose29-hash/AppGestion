@@ -1,0 +1,89 @@
+@charset "UTF-8";
+/* Fondo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor */
+.login-container {
+    background: #fff;
+    width: 320px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Encabezado */
+.login-header {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+    margin: -20px -20px 15px -20px;
+}
+
+/* Mensaje de conexión */
+.success-msg {
+    background: #e6ffed;
+    color: #256029;
+    border: 1px solid #b6e7c9;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.login-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Checkbox */
+.login-container .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.login-container .form-check input {
+    margin-right: 8px;
+}
+
+/* Botón */
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background: #0056b3;
+}
