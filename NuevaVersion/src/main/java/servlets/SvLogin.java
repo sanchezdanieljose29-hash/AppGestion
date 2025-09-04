@@ -17,7 +17,7 @@ public class SvLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // 1. Recibir datos del formulario
+        // 1. Obtiene los datos del formulario
         String cedula = request.getParameter("cedula");
         String clave = request.getParameter("clave");
 
@@ -27,12 +27,12 @@ public class SvLogin extends HttpServlet {
 
         // 3. Validar resultado
         if (user != null) {
-            // ✅ Credenciales correctas
+            // Credenciales correctas
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario", user); // guardamos el objeto completo
             response.sendRedirect("SvPanel"); // redirige al panel
         } else {
-            // ❌ Credenciales incorrectas
+            //  Credenciales incorrectas
             response.sendRedirect("index.jsp?error=1");
         }
     }

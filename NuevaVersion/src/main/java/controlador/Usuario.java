@@ -44,6 +44,9 @@ public class Usuario {
     public void setClave(String clave) { this.clave = clave; }
 
     // Método para imprimir datos de forma legible
+    /*Este método se llama automáticamente cuando imprimes un objeto Usuario.
+      Te permite ver todos los datos de forma ordenada y legible.*/
+    
     @Override
     public String toString() {
         return "Usuario{" +

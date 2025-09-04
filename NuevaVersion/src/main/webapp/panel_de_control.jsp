@@ -33,6 +33,7 @@
                 <div>
                     <a href="Crear.jsp" class="btn btn-success">➕ Agregar nuevo</a>
                     <a href="ReporteClientespdf" class="btn btn-danger" target="_blank">📄 Generar PDF</a>
+                    <a href="EnvioCorreo"  method="POST" class="btn btn-danger" target="_blank">📄 Enviar Correo</a>
                 </div>
             </div>
 
