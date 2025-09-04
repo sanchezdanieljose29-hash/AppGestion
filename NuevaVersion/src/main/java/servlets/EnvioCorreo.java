@@ -30,16 +30,17 @@ public class EnvioCorreo extends HttpServlet {
             throws ServletException, IOException {
 
         // Correo destinatario
-        String to = "sanchezdanieljose29@email.com";
+        String to = "sanchezdanieljose29@gmail.com";
         // Correo remitente
-        String from = "sanchezdanieljose29@email.com";
+        String from = "sanchezdanieljose29@gmail.com";
 
         // Credenciales (usuario y contraseña de aplicación)
-        final String username = "sanchezdanieljose29@email.com"; // Cambia esto por tu usuario SMTP real
+        final String username = "sanchezdanieljose29@gmail.com"; // Cambia esto por tu usuario SMTP real
         final String password = "cafi occt ypce svdz"; // Cambia por tu contraseña de aplicación
 
         // Servidor SMTP (Mailtrap en este caso)
-        String host = "live.smtp.mailtrap.io";
+        String host = "smtp.gmail.com";
+
 
         // Configuración SMTP
         Properties props = new Properties();
@@ -62,7 +63,7 @@ public class EnvioCorreo extends HttpServlet {
             message.setFrom(new InternetAddress(from)); // Remitente
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(to)); // Destinatario
             message.setSubject("Hello from the Mailtrap team"); // Asunto
-            message.setText("Enjoy sending emails from Jakarta Mail!"); // Contenido
+            message.setText("Enviaste un correo electronico desde Jakarta---AGUUUU--GUUUU---u-u!"); // Contenido
 
             // Enviar mensaje
             Transport.send(message);
