@@ -67,7 +67,7 @@ public class SvCrud extends HttpServlet {
                 break;
             }
 
-            // --------------------- CASE: ELIMINAR ---------------------
+         // --------------------- CASE: ELIMINAR ---------------------
             case "Eliminar": {
                 String idStr = request.getParameter("id");
 

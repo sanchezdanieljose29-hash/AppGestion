@@ -29,7 +29,7 @@ public class SvPanel extends HttpServlet {
         request.setAttribute("usuarios", usuarios);
 
         // Se redirige a la vista JSP con los datos cargados
-        request.getRequestDispatcher("panel_de_control.jsp").forward(request, response);
+        request.getRequestDispatcher("PanelControlUsuarios.jsp").forward(request, response);
     }
 
     /**
@@ -57,7 +57,7 @@ public class SvPanel extends HttpServlet {
 
                 // Se crea un objeto Usuario (modelo) y se envía al DAO para insertarlo en la base de datos
                 Usuario u = new Usuario(cedula, nombre, apellido, clave);
-                crud.insertar(u);
+                crud.crear(u);
 
             /**
              * Condicional 2: Actualizar un usuario existente
@@ -92,6 +92,6 @@ public class SvPanel extends HttpServlet {
         }
 
         // Después de cualquier operación, se redirige nuevamente al panel con la lista actualizada
-        response.sendRedirect(request.getContextPath() + "/SvPanel");
+        response.sendRedirect(request.getContextPath() + "/PanelControlUsuarios.jsp");
     }
 }

@@ -14,10 +14,10 @@ public class Crud_Dao {
     // Logger para registrar información y errores (no se usa activamente, pero es buena práctica)
     private static final Logger LOG = Logger.getLogger(Crud_Dao.class.getName());
 
-    /*
+    
     // Método privado para registrar auditoría (comentado actualmente)
     // Su propósito era insertar un registro en la tabla de auditoría cada vez que se realiza una acción.
-    private void registrarAuditoria(String cedula, String operacion) {
+    private void insertar(String cedula, String operacion) {
         String sql = "INSERT INTO auditoria (usuario_id, operacion) VALUES (?, ?)";
         try (Connection con = Conexion.obtener();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -28,7 +28,7 @@ public class Crud_Dao {
             e.printStackTrace();
         }
     }
-    */
+    
 
     // ---------------- MÉTODO: Crear Usuario ----------------
     public void crear(Usuario usuario) {
@@ -52,11 +52,25 @@ public class Crud_Dao {
 
     // ---------------- MÉTODO: Eliminar Usuario ----------------
     public void eliminar(int id) {
+    	// 1. Consultar el usuario antes de borrarlo
+    	 ObtenerDeEliminacion helper = new ObtenerDeEliminacion();
+    	 Usuario usuario = helper.obtenerPorId(id); // 👈 se llama desde la otra clase
+    	 
+    	 if (usuario == null) {
+    	        System.out.println("❌ Usuario no encontrado con ID " + id);
+    	        return;
+    	    }
+    	
         String sql = "DELETE FROM tblusuarios WHERE id = ?";
         try (Connection con = Conexion.obtener()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id); // Se indica el ID del usuario a eliminar
             ps.executeUpdate(); // Se ejecuta la consulta DELETE
+            
+            System.out.println("✅ Usuario eliminado: " + usuario.getNombre());
+            DaoMensajeAutomatico envio = new DaoMensajeAutomatico(); 
+            envio.notificarEliminacion(usuario);       
+                        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -111,21 +125,5 @@ public class Crud_Dao {
         return lista; // Se devuelve la lista de usuarios
     }
 
-    // ---------------- MÉTODO: Insertar Usuario (duplicado de crear) ----------------
-    public void insertar(Usuario u) {
-        String sql = "INSERT INTO tblusuario (cedula, nombre, apellido, clave) VALUES (?, ?, ?, ?)";
-        try (Connection con = Conexion.obtener();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, u.getCedula());
-            ps.setString(2, u.getNombre());
-            ps.setString(3, u.getApellido());
-            ps.setString(4, u.getClave());
-
-            ps.executeUpdate(); // Ejecuta el INSERT
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+   
 }

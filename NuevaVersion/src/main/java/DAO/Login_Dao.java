@@ -8,10 +8,6 @@ import controlador.Conexion;
 import controlador.Usuario;
 
 public class Login_Dao {
-	
-	/*Si encuentra un registro en la base de datos que coincida con la cédula y la clave proporcionadas,
-	 *  devuelve un objeto Usuario. Si no, devuelve null.
-	 */
 
     public Usuario login(String cedula, String clave) {
         Usuario user = null;
@@ -30,11 +26,13 @@ public class Login_Dao {
                 user = new Usuario();
                 user.setCedula(cedula);
                 user.setClave(clave);
-                
+                // 👇 si tienes más campos, agrégalos
+                // user.setNombre(rs.getString("nombre"));
+                // user.setApellido(rs.getString("apellido"));
             }
 
         } catch (Exception e) {
-            System.out.println(" Error en Login_Dao.login()");
+            System.out.println("❌ Error en Login_Dao.login()");
             e.printStackTrace();
         }
         return user;
