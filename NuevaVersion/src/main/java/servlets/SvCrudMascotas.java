@@ -33,6 +33,12 @@ public class SvCrudMascotas extends HttpServlet {
 
             // ------------------ CREAR MASCOTA ------------------
             case "Crear": {
+            	
+            	String vacioIdCliente = request.getParameter("idCliente");
+            	int idCliente = 0; // o -1, o cualquier valor por defecto que uses para "sin cliente"
+
+            	
+            	if (vacioIdCliente != null && !vacioIdCliente.trim().isEmpty()) {
                 try {
                     String nombre = request.getParameter("nombre");
                     String tipo = request.getParameter("tipo");
@@ -41,7 +47,7 @@ public class SvCrudMascotas extends HttpServlet {
                     double precioBase = Double.parseDouble(request.getParameter("precio_base"));
                     double precioVenta = Double.parseDouble(request.getParameter("precio_venta"));
                     String estado = request.getParameter("estado");
-                    int idCliente = Integer.parseInt(request.getParameter("id_cliente"));
+                    
 
                     Mascotas mascota = new Mascotas(nombre, tipo, raza, sexo, precioBase, precioVenta, estado, idCliente);
                     dao.crear(mascota);
@@ -52,6 +58,8 @@ public class SvCrudMascotas extends HttpServlet {
 
                 response.sendRedirect(request.getContextPath() + "/SvPanelMascotas");
                 break;
+            }
+            	
             }
 
             // ------------------ ELIMINAR MASCOTA ------------------

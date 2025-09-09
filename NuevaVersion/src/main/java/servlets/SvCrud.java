@@ -21,10 +21,16 @@ public class SvCrud extends HttpServlet {
     // Identificador único de la clase serializable (buena práctica en servlets)
     private static final long serialVersionUID = 1L;
 
-    /**
-     * Método que maneja peticiones POST (formularios).
-     * Permite crear, actualizar o eliminar un usuario según el parámetro "operacion".
+    /**COMENTARIO DEL CRUD
+     * Métodos que maneja peticiones POST (formularios).
+     * Se espera que los formularios envíen un campo oculto o botón con el valor Crear, Actualizar o Eliminar.
+     * Si no se recibe nada, redirige al error:
+     * 
      */
+    
+    
+    
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

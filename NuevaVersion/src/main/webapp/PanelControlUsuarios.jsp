@@ -23,8 +23,8 @@
 					<ul class="nav flex-column">
 						<li class="nav-item"><a class="nav-link text-white" href="#">🏠
 								Inicio</a></li>
-								<li class="nav-item"><a class="nav-link text-white" href="SvPanelMascotas">👤
-								Mascotas</a></li>
+						<li class="nav-item"><a class="nav-link text-white"
+							href="SvPanelMascotas">👤 Mascotas</a></li>
 						<li class="nav-item"><a class="nav-link text-white"
 							href="registros.jsp">📋 Registros</a></li>
 						<li class="nav-item" method="POST"><a
@@ -39,6 +39,8 @@
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h3">Panel de Control</h1>
 					<div>
+
+						
 						<a href="Crear.jsp" class="btn btn-success">➕ Agregar nuevo</a> <a
 							href="ReporteClientespdf" class="btn btn-danger" target="_blank">📄
 							Generar PDF</a>
@@ -65,8 +67,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%
-							List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
+						
+						
+						<%
+						
+					     List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
+						//PRIMERA PARTE:EN (usuarios != null) COMPRUEBA SÍ EL OBJETO USUARIO NO SEA NULLO, ES DECIR, SÍ LA VARIABLE APUNTA A 
+						//A UN OBJETO REAL EN MEMORIA 
+						
+						//SEGUNDA PARTE:( !usuarios.isEmpty() ) VERIFICA QUE LA LISTA NO ESTE VACIA.
+						//usuarios.isEmpty() devuelve true si no hay elementos en la lista.
+						//El operador ! (negación lógica) invierte ese valor.
+						
 							if (usuarios != null && !usuarios.isEmpty()) {
 								for (Usuario usuario : usuarios) {
 							%>

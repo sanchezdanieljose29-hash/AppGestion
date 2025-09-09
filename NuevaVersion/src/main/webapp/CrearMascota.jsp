@@ -15,10 +15,10 @@
         <input type="hidden" name="operacion" value="Crear" />
 
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" maxlength="20" required />
+        <input type="text" id="nombre" name="nombre" maxlength="50" required />
 
         <label for="tipo">Tipo de Mascota</label>
-        <input type="text" id="tipo" name="tipo" maxlength="50" required />
+        <input type="text" id="tipo" name="tipo" maxlength="20" required />
 
         <label for="raza">Raza</label>
         <input type="text" id="raza" name="raza" maxlength="50" required />

@@ -49,7 +49,7 @@ public class SvPanelMascotas extends HttpServlet {
              * Condicional 1: Crear un nuevo usuario
              * Se ejecuta si el valor del parámetro "operacion" es igual a "crear" (ignorando mayúsculas/minúsculas).
              */
-            if ("Mascotas".equalsIgnoreCase(operacion)) {
+            if ("Crear".equalsIgnoreCase(operacion)) {
                 // Se obtienen los parámetros del formulario
                 String nombre = request.getParameter("nombre");
                 String tipo = request.getParameter("tipo");
@@ -58,7 +58,7 @@ public class SvPanelMascotas extends HttpServlet {
                 double precioBase = Double.parseDouble(request.getParameter("precioBase"));
                 double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
                 String estado = request.getParameter("estado");
-                int id_Cliente = Integer.parseInt(request.getParameter("id_Cliente"));
+                int id_Cliente = Integer.parseInt(request.getParameter("idCliente"));
 
                 // Se crea un objeto Usuario (modelo) y se envía al DAO para insertarlo en la base de datos
                 Mascotas u = new Mascotas(nombre, tipo, raza, sexo,precioBase,precioVenta,estado,id_Cliente);
@@ -77,7 +77,7 @@ public class SvPanelMascotas extends HttpServlet {
                  double precioBase = Double.parseDouble(request.getParameter("precioBase"));
                  double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
                  String estado = request.getParameter("estado");
-                 int id_Cliente = Integer.parseInt(request.getParameter("id_Cliente")); // Se convierte el ID a entero
+                 int id_Cliente = Integer.parseInt(request.getParameter("idCliente")); // Se convierte el ID a entero
 
                 // Se crea un objeto Usuario con los nuevos datos y se actualiza mediante el DAO
                 Mascotas u = new Mascotas(nombre, tipo, raza, sexo,precioBase,precioVenta,estado,id_Cliente);

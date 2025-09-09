@@ -18,8 +18,7 @@
                 <h2 class="h5">Menú</h2>
                 <ul class="nav flex-column">
                     <li class="nav-item"><a class="nav-link text-white" href="masas">🏠 Inicio</a></li>
-                   <a class="nav-link text-white" href="SvPanelMascotas">👤 Usuarios</a>
-                     <a class="nav-link text-white" href="/SvPanelMascotas">🐕 Mascotas</a>
+                   <a class="nav-link text-white" href="SvPanel">👤 Usuarios</a>
                     <li class="nav-item"><a class="nav-link text-white" href="usuarios">👤 Clientes</a></li>
                     
                 </ul>
