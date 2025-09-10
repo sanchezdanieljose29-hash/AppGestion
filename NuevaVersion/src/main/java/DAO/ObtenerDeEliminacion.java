@@ -15,7 +15,7 @@ public class ObtenerDeEliminacion {
 	         PreparedStatement ps = con.prepareStatement(sql)) {
 
 	        ps.setInt(1, id);
-	        ResultSet rs = ps.executeQuery();
+	        ResultSet rs = ps.executeQuery();	
 
 	        if (rs.next()) {
 	            Usuario u = new Usuario();

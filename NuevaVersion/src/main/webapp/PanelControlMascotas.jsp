@@ -73,7 +73,7 @@
                     <td><%=mascota.getIdCliente()%></td>
                     <td>
                         <!-- Botón Editar -->
-                        <form action="Editar.jsp" method="GET" class="d-inline">
+                        <form action="EditarMascota.jsp" method="GET" class="d-inline">
                             <input type="hidden" name="id" value="<%=mascota.getId()%>" />
                             <input type="hidden" name="nombre" value="<%=mascota.getNombre()%>" />
                             <input type="hidden" name="tipo" value="<%=mascota.getTipo()%>" />
@@ -83,7 +83,7 @@
                             <input type="hidden" name="precioVenta" value="<%=mascota.getPrecioVenta()%>" />
                             <input type="hidden" name="estado" value="<%=mascota.getEstado()%>" />
                             <input type="hidden" name="idCliente" value="<%=mascota.getIdCliente()%>" />
-                            <button class="btn btn-sm btn-warning" name="Actualizar" value="Actualizar">✏️ Actualizar</button>
+                            <button class="btn btn-sm btn-warning"  name="Actualizar" value="Actualizar">✏️ Actualizar</button>
                         </form>
 
                         <!-- Botón Eliminar -->

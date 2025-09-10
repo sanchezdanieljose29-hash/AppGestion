@@ -35,22 +35,23 @@ public class SvCrudMascotas extends HttpServlet {
             case "Crear": {
             	
             	String vacioIdCliente = request.getParameter("idCliente");
-            	int idCliente = 0; // o -1, o cualquier valor por defecto que uses para "sin cliente"
+            	int idCliente = 0;
 
-            	
             	if (vacioIdCliente != null && !vacioIdCliente.trim().isEmpty()) {
+            	    idCliente = Integer.parseInt(vacioIdCliente.trim());
                 try {
                     String nombre = request.getParameter("nombre");
                     String tipo = request.getParameter("tipo");
                     String raza = request.getParameter("raza");
                     String sexo = request.getParameter("sexo");
-                    double precioBase = Double.parseDouble(request.getParameter("precio_base"));
-                    double precioVenta = Double.parseDouble(request.getParameter("precio_venta"));
+                    double precioBase = Double.parseDouble(request.getParameter("precioBase"));
+                    double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
                     String estado = request.getParameter("estado");
                     
 
                     Mascotas mascota = new Mascotas(nombre, tipo, raza, sexo, precioBase, precioVenta, estado, idCliente);
                     dao.crear(mascota);
+
 
                 } catch (Exception e) {
                     LOG.warning("❌ Error al crear mascota: " + e.getMessage());
@@ -83,16 +84,17 @@ public class SvCrudMascotas extends HttpServlet {
 
             // ------------------ ACTUALIZAR MASCOTA ------------------
             case "Actualizar": {
+            	 String idStr = request.getParameter("id");
                 try {
                     int id = Integer.parseInt(request.getParameter("id"));
                     String nombre = request.getParameter("nombre");
                     String tipo = request.getParameter("tipo");
                     String raza = request.getParameter("raza");
                     String sexo = request.getParameter("sexo");
-                    double precioBase = Double.parseDouble(request.getParameter("precio_base"));
-                    double precioVenta = Double.parseDouble(request.getParameter("precio_venta"));
+                    double precioBase = Double.parseDouble(request.getParameter("precioBase"));
+                    double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
                     String estado = request.getParameter("estado");
-                    int idCliente = Integer.parseInt(request.getParameter("id_cliente"));
+                    int idCliente = Integer.parseInt(request.getParameter("idCliente"));
 
                     Mascotas mascota = new Mascotas(id, nombre, tipo, raza, sexo, precioBase, precioVenta, estado, idCliente);
                     dao.actualizar(mascota);
