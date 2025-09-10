@@ -36,8 +36,8 @@ public class EnvioCorreo extends HttpServlet {
         String from = "sanchezdanieljose29@gmail.com";
 
         // Credenciales (usuario y contraseña de aplicación)
-        final String username = "sanchezdanieljose29@gmail.com"; // Cambia esto por tu usuario SMTP real
-        final String password = "cafi occt ypce svdz"; // Cambia por tu contraseña de aplicación
+        final String username = "sanchezdanieljose29@gmail.com"; // Mi correo electronico
+        final String password = "cafi occt ypce svdz"; // App contraseña
 
         // Servidor SMTP (Mailtrap en este caso)
         String host = "smtp.gmail.com";
